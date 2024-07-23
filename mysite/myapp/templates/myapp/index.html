@@ -1,23 +1,36 @@
+{% extends "myapp/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=" {% static 'myapp/style.css' %}">
-    <title>Document</title>
-</head>
-<body>
-    <h1>это главная страница</h1>
-    <h4>
-    {% for item in  items %}
-    <a href="{% url "myapp:detail" item.id %}">
-        {{item.id}} {{item.name}} | {{item.price}} | {{item.description}} <br/>
 
-    </a>
-        {% endfor %}
-    </h4>
+
+{% block content %}
+<nav style="background-color: aquamarine;">
+    <div>
+      <div>
+        <div>
+          <div>
+            <a href="#">
+              <img style="width: 100px;" src="{% static 'myapp/images/shop.png' %}" alt="logo">
+              <span>Por shop</span>
+            </a>
+            <div>
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Contacts</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
+<h4>
+{% for item in  items %}
+<a href="{% url "myapp:detail" item.id %}">
+    {{item.id}} {{item.name}} | {{item.price}} | {{item.description}} <br/>
+
+</a>
+    {% endfor %}
+</h4>
+ {% endblock %}
     
-</body>
-</html>
+
